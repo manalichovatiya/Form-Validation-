@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <style>
+        .required{
+            display: none;
+            font-size: 10px;
+            color: red;
+            text-transform: uppercase;
+        }
+    </style>
+        <table border="5">
+        <tr>
+            <td><label for="">Name:- </label></td>
+            <td><input required type="text" id="name" onfocus="rework()"/>
+            <span class="required" id="red1">Only small characters</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="">Email:- </label></td>
+            <td><input required type="email" id="email" onfocus="rework()"/>
+            <span class="required" id="red2">Enter valid email address</span>
+            </td>   
+        </tr>
+
+        <tr>
+            <td><label for="">Password:- </label></td>
+            <td><input required type="text" id="password" onfocus="rework()"/>
+            <span class="required" id="red3">Password length should be between 8 to 16</span></td>
+        </tr>
+
+        <tr>
+            <td><label for="">Phone number:- </label></td>
+            <td><input required type="text" id="number" onfocus="rework()"/>
+            <span class="required" id="red4">Mobile number must be of length 10</span></td>
+        </tr>
+
+        <tr><td><button type="submit" onclick="check()">submit</button></td></tr>
+        </table>    
+
+    <script type="text/javascript">
+        function name(){
+            let a = document.getElementById('name').value;
+            if(a != "")
+            {
+                if(a > 'a' && a < 'z'){}
+                else{
+                document.getElementById('red1').style.display = "block";
+                }
+            }
+            else{
+                document.getElementById('red1').style.display = "block";
+            }
+        }
+        function email(){
+            let b = document.getElementById('email').value;
+            if (b == "")
+            {
+                document.getElementById('red2').style.display = "block";
+            }
+        }
+        function password(){
+            let b = document.getElementById('password').value;
+            let c = b.length;
+            if (c < 8 || c>16){
+                document.getElementById('red3').style.display = "block";
+            }
+        }
+        function number(){
+             let a = document.getElementById('number').value;           
+             let c = a.length;
+             if( c == 0)
+             {
+                document.getElementById('red4').style.display = "block";
+             }
+             else if(c>10)
+             {
+                document.getElementById('red4').style.display = "block";
+
+             }
+        }
+        function rework(){
+            document.getElementById('red1').style.display = "none";
+            document.getElementById('red3').style.display = "none";
+        }
+        function check(){
+            name();
+            email();
+            password();
+            number();
+        }
+    </script>
+</body>
+</html>
